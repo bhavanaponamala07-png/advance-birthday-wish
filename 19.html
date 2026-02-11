@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Mission for Manish ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            display: none;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            width: 85%;
+            margin: 20px auto;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            margin: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #00ffcc;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        h1 {
+            color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔐 Private Access Required 🔐</h1>
+    <p>Only Manish can unlock this mission 🎮</p>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <br>
+    <button onclick="checkPassword()">Unlock</button>
+
+    <div class="container" id="mainContent">
+
+        <h1>🔥 Advance Birthday Event Activated 🔥</h1>
+
+        <div class="card">
+            <h2>Hey Manish ❤️</h2>
+            <p>
+                You really thought I'd wait until March 19?
+                <br><br>
+                Impossible 😌
+                <br><br>
+                Advance Happy 24th Birthday to my favorite Man.
+                1.5 year= Best update ever.❤️‍🩹
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>⏳ Countdown to Level 24 ⏳</h2>
+            <h3 id="countdown"></h3>
+        </div>
+
+        <!-- Background Music -->
+        <audio id="bgMusic" loop>
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+    <script>
+        // CHANGE THIS PASSWORD
+        var correctPassword = "manish19";
+
+        function checkPassword() {
+            var enteredPassword = document.getElementById("password").value;
+            if (enteredPassword === correctPassword) {
+                document.getElementById("mainContent").style.display = "block";
+                document.querySelector("input").style.display = "none";
+                document.querySelector("button").style.display = "none";
+                
+                // Play music after unlock
+                document.getElementById("bgMusic").play();
+            } else {
+                alert("Wrong Password 😏 Try Again.");
+            }
+        }
+
+        // Countdown Timer (March 19, 2026)
+        var birthday = new Date("March 19, 2026 00:00:00").getTime();
+
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+            var distance = birthday - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML =
+                    "🎉 LEVEL 24 UNLOCKED 🎉";
+            }
+
+        }, 1000);
+    </script>
+
+</body>
+</html>
