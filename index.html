@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Manish 🤍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      max-width: 420px;
+      display: none;
+    }
+
+    .login {
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: none;
+      background: #6c63ff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .heart {
+      font-size: 24px;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .hidden {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #bbb;
+      display: none;
+    }
+
+    .countdown {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ddd;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="login" id="loginBox">
+  <h2>Private Message 🔒</h2>
+  <p>Enter the password</p>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <br>
+  <button onclick="checkPassword()">Enter</button>
+</div>
+
+<div class="card" id="mainContent">
+  <h1>Advance Happy Birthday, Manish 💚</h1>
+  <p>
+    I know your birthday is coming up,    
+    I truly hope this year brings you peace, strength,  
+    and clarity in everything you do.  
+    No matter what, I’ll always wish the best for you.
+  </p>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="heart">❤️</div>
+
+  <button onclick="showHidden()">Tap here 🤍</button>
+
+  <div class="hidden" id="hiddenMessage">
+    03.08.24 ❤️‍🩹 <br><br>
+    It’s been 1.5 years… <br>
+    Some dates don’t fade, no matter how much time passes.
+  </div>
+
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5b1f3e5f16.mp3?filename=relaxing-ambient-110624.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  function checkPassword() {
+    var password = "0308"; 
+    var input = document.getElementById("passwordInput").value;
+
+    if (input === password) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+
+      var music = document.getElementById("bgMusic");
+      music.volume = 0.2;
+      music.play();
+
+      startCountdown();
+    } else {
+      alert("Wrong password 🤍");
+    }
+  }
+
+  function showHidden() {
+    document.getElementById("hiddenMessage").style.display = "block";
+  }
+
+  function startCountdown() {
+    var birthday = new Date(new Date().getFullYear(), 2, 19); // March 19
+    var now = new Date();
+
+    if (now > birthday) {
+      birthday.setFullYear(birthday.getFullYear() + 1);
+    }
+
+    setInterval(function() {
+      var now = new Date().getTime();
+      var distance = birthday - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+      document.getElementById("countdown").innerHTML =
+        days + " days " + hours + " hrs " + minutes + " mins until March 19 💌";
+
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
