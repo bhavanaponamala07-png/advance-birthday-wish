@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👑 Classic Birthday Power 👑</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#000000,#1a1a1a);
+    overflow:hidden;
+    color:#f5f5f5;
+}
+
+/* Elegant gold light sweep */
+body::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:linear-gradient(120deg,transparent 40%,rgba(212,175,55,0.08) 50%,transparent 60%);
+    animation:sweep 6s linear infinite;
+}
+
+@keyframes sweep{
+    from{transform:translateX(-50%) rotate(25deg)}
+    to{transform:translateX(50%) rotate(25deg)}
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:650px;
+    text-align:center;
+}
+
+.box{
+    background:rgba(20,20,20,0.95);
+    padding:60px 45px;
+    border-radius:20px;
+    border:1px solid #d4af37;
+    box-shadow:0 0 40px rgba(212,175,55,0.25);
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:2.7rem;
+    font-weight:900;
+    color:#d4af37;
+    letter-spacing:2px;
+    animation:pulse 1.8s infinite alternate;
+}
+
+@keyframes pulse{
+    from{text-shadow:0 0 10px rgba(212,175,55,0.5)}
+    to{text-shadow:0 0 25px rgba(212,175,55,0.9)}
+}
+
+.subtitle{
+    margin-top:15px;
+    font-weight:700;
+    font-size:1.2rem;
+    letter-spacing:1px;
+}
+
+p{
+    margin-top:22px;
+    font-size:1.1rem;
+    line-height:1.6;
+}
+
+.highlight{
+    font-size:2rem;
+    font-weight:900;
+    margin-top:25px;
+    color:#d4af37;
+    animation:bounce 1.2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+input{
+    margin-top:30px;
+    padding:12px;
+    width:80%;
+    border-radius:30px;
+    border:1px solid #d4af37;
+    background:black;
+    color:#d4af37;
+    text-align:center;
+    font-weight:700;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 40px;
+    border-radius:30px;
+    border:none;
+    font-weight:900;
+    cursor:pointer;
+    background:#d4af37;
+    color:black;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #d4af37;
+}
+
+.card{
+    display:none;
+    animation:reveal 1s ease forwards;
+}
+
+@keyframes reveal{
+    from{opacity:0;transform:scale(.7)}
+    to{opacity:1;transform:scale(1)}
+}
+
+.footer{
+    margin-top:35px;
+    font-size:.9rem;
+    opacity:.6;
+}
+
+.error{
+    margin-top:15px;
+    color:#ff4d4d;
+    display:none;
+}
+</style></head>
+<body><div class="container"><div class="box" id="loginBox">
+    <h1>🔐 PRIVATE ACCESS</h1>
+    <div class="subtitle">Only Legends Enter.</div>
+    <input type="password" id="password" placeholder="Enter The Code">
+    <br>
+    <button onclick="unlock()">ENTER 👑</button>
+    <div class="error" id="errorMsg">Not everyone is built for this level 👀</div>
+</div><div class="box card" id="birthdayCard">
+    <h1>👑 HAPPY BIRTHDAY KING 👑</h1>
+    <div class="subtitle">Not by blood. By Loyalty.</div><!-- Giant Gold Name -->
+<div class="giant-name" id="giantName">BHANU</div>
+
+<p>Wishing you a wonderful year ahead and everything you deserves Annayaa💌.</p>
+
+<div class="highlight">BUILT DIFFERENT 💪</div>
+
+<p>
+    This year we elevate everything.
+    Bigger mindset. Bigger success. Bigger impact.
+</p>
+
+<div class="highlight">LEGACY MODE: ON 🚀</div>
+
+<div class="footer">For the dearest brother.</div>
+
+</div><style>
+.giant-name{
+    margin-top:30px;
+    font-family:'Playfair Display',serif;
+    font-size:4.5rem;
+    font-weight:900;
+    letter-spacing:6px;
+    background:linear-gradient(180deg,#f8e7a1,#d4af37,#b8860b);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 25px rgba(212,175,55,0.8);
+    animation:giantReveal 1.5s ease forwards, goldGlow 2s infinite alternate;
+    transform:scale(0.5);
+    opacity:0;
+}
+
+@keyframes giantReveal{
+    to{transform:scale(1);opacity:1}
+}
+
+@keyframes goldGlow{
+    from{text-shadow:0 0 15px rgba(212,175,55,0.6)}
+    to{text-shadow:0 0 40px rgba(212,175,55,1)}
+}
+</style></div><script>
+const correctPassword="bhanu17";
+
+function unlock(){
+    const userInput=document.getElementById("password").value;
+    if(userInput===correctPassword){
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("birthdayCard").style.display="block";
+        blastEnergy();
+    }else{
+        document.getElementById("errorMsg").style.display="block";
+    }
+}
+
+function blastEnergy(){
+    for(let i=0;i<60;i++){
+        let spark=document.createElement("div");
+        spark.style.position="absolute";
+        spark.style.width="6px";
+        spark.style.height="6px";
+        spark.style.background="#d4af37";
+        spark.style.borderRadius="50%";
+        spark.style.top="50%";
+        spark.style.left="50%";
+        spark.style.transition="all 1.2s ease-out";
+        document.body.appendChild(spark);
+
+        let x=(Math.random()-0.5)*600;
+        let y=(Math.random()-0.5)*600;
+
+        setTimeout(()=>{
+            spark.style.transform=`translate(${x}px,${y}px)`;
+            spark.style.opacity=0;
+        },50);
+
+        setTimeout(()=>{spark.remove();},1200);
+    }
+}
+</script></body>
+</html>
